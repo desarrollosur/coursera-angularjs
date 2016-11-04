@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>
+      Categorie
+    </th>
+    <th colspan="2">
+      Name
+    </th>
+  </tr>
+  <tr ng-repeat="item in $ctrl.items">
+    <td>{{ item.short_name }}</td>
+    <td>{{ item.name }}</td>
+    <td><a ui-sref='items({categorie: item.short_name})'>See items</a></td>
+  </tr>
+</table>
