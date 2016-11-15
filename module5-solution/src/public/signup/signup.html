@@ -1,0 +1,91 @@
+
+<form class="form-horizontal" name="signupForm" novalidate>
+<fieldset>
+
+<!-- Form Name -->
+<legend>Form Name</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="first_name">First Name</label>
+  <div class="col-md-4">
+  <input ng-model="signupCtrl.newuser.first_name" name="first_name" placeholder="First Name" class="form-control input-md" type="text" required>
+  <span class="help-block">First Name</span>
+  <span
+    ng-if="signupForm.first_name.$error.required && signupForm.first_name.$touched">
+    First Name is REQUIRED
+  </span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="last_name">Last Name</label>
+  <div class="col-md-4">
+  <input ng-model="signupCtrl.newuser.last_name" name="last_name" placeholder="Last Name" class="form-control input-md" type="text"
+  required>
+  <span class="help-block">Last Name</span>
+  <span
+    ng-if="signupForm.last_name.$error.required && signupForm.last_name.$touched">
+    Last Name is REQUIRED
+  </span>
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email</label>
+  <div class="col-md-4">
+  <input ng-model="signupCtrl.newuser.email" name="email" placeholder="Email" class="form-control input-md" type="email"
+  required>
+  <span class="help-block">Email</span>
+  <span
+    ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+    Must be a valid Email
+  </span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="phone_number">Phone Number Phone ###-###-####</label>
+  <div class="col-md-4">
+  <input ng-model="signupCtrl.newuser.phone_number" name="phone_number" placeholder="Phone Number" class="form-control input-md" type="text"
+   pattern="(\d{3})-(\d{3})-(\d{4})">
+  <span class="help-block">Phone Number</span>
+  <span
+    ng-if="signupForm.phone_number.$invalid && signupForm.phone_number.$touched">
+    Phone must be in the format ###-###-####.
+  </span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="favorite_dish">Favorite Dish</label>
+  <div class="col-md-4">
+  <input ng-model="signupCtrl.newuser.favorite_dish" name="favorite_dish" placeholder="Favorite Dish" class="form-control input-md" type="text">
+  <span class="help-block">Favorite Dish</span>
+  <span
+    ng-if="signupCtrl.errorms.length>0">
+    {{signupCtrl.errorms}}
+  </span>
+
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="signup">Sign Up</label>
+  <div class="col-md-4">
+    <button id="signup" name="signup" class="btn btn-primary"
+     ng-click="signupCtrl.signup()"
+     ng-disabled="signupForm.$invalid"
+     >Sign Up</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+<h2 ng-if="signupCtrl.success">Your information has been saved</h2>

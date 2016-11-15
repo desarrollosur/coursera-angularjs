@@ -1,0 +1,36 @@
+<div ng-if="!myInfoCtrl.isUserSignup()">
+  Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+</div>
+<div ng-if="myInfoCtrl.isUserSignup()">
+  <table>
+    <tr>
+      <td>First Name</td>
+      <td>{{myInfoCtrl.user.first_name}}</td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td>{{myInfoCtrl.user.last_name}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{myInfoCtrl.user.email}}</td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td>{{myInfoCtrl.user.phone_number}}</td>
+    </tr>
+    <tr>
+      <td>Favorite Dish</td>
+      <td>
+        <span>Favorite Dish Code:{{myInfoCtrl.user.favorite_dish}} </span>
+        <span>Name: {{myInfoCtrl.user.dish.name}}</span>
+        <span>Descrition: {{myInfoCtrl.user.dish.description}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        <img ng-src="images/menu/{{myInfoCtrl.getCategorieFromDish()}}/{{myInfoCtrl.getCategorieFromDish()}}.jpg"/>
+      </td>
+    </tr>
+  </table>
+</div>
